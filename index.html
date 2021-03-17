@@ -1,17 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+        crossorigin="anonymous">
+    <style>
+        .red {
+            color: #ff0000;
+        }
+    </style>
     <title>J'apprends Vue.js</title>
 </head>
+
 <body>
     <div id="app">
-        <h1>Complément alimentaire</h1>
-        <p>{{ products }}</p>
+        <h1>Jujutsu Kaisen</h1>
+        <p>{{ message }}</p>
+    </div>
+    <div id="app">Est ce que tu aimes les films de gladiateurs ?
+        <h1 :class="{ red: active }"></h1>
+        <!--utilisation de v-on-->
+        <input type="text" v-model="title">
+        <!--Un champ input permettant de mettre à jour le contenu d’une balise h1 -->
+
+        <h2 :class="{ red: active }"></h2>
+        <input v-model="title3">
+        <br>
+        <h2 v-if="show"></h2>
+        <br>
+        <h2 v-if="!show" :class="{ red: active }">"ici"</h2>
+        <input v-model="title2">
+        <button v-on:click="active2=!active2">
+            Envoyé
+        </button>
+
+        <div>
+            <br><input @click="active = !active" type="checkbox" id="scales" name="scales" checked>
+            <label for="scales">Red Title</label>
+        </div>
+
+        <div>
+            <input v-on:click="show2 = !show2" type="checkbox" id="horns" name="horns">
+            <label for="horns">Image</label>
+            <!--/Une checkbox pour afficher / masquer une image -->
+        </div>
+        <img v-if="Itadori"
+            src="https://medias.comixtrip.fr/wp-content/uploads/2020/11/jujutsu-kaisen-wallpaper-01-1200x675.jpg">
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="main.js"></script>
 </body>
+
 </html>
